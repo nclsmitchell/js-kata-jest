@@ -1,11 +1,11 @@
+const separator = ',';
+
 function add(string) {
   if (string.length > 0) {
-    let sum = 0
-    const list = string.split(',');
-    for (let i=0; i<list.length; i++) {
-      sum += parseInt(list[i]);
-    }
-    return sum;
+    const sum = string.split(separator).reduce((acum, item) => {
+      return parseInt(acum) + parseInt(item);
+    })
+    return parseInt(sum);
   }
   return 0;
 }
