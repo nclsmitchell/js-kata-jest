@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.1.0"
+  },
+  "providedServices": {
+    "tester": {
+      "versions": {
+        "1.0.0": "provideTester"
+      }
+    }
+  }
+}
