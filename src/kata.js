@@ -12,10 +12,10 @@ function add(string) {
     const sum = string.split(regex)
       .filter(item => !isNaN(parseInt(item)) && parseInt(item) < 1000)
       .reduce((acum, item) => {
-        if (parseInt(item) >= 0) {
+        if (parseInt(item) > 0) {
           return parseInt(acum) + parseInt(item);
         }
-        else {
+        else if (parseInt(acum) < 0 || parseInt(item) < 0) {
           negatives.push(parseInt(item));
         }
       })
