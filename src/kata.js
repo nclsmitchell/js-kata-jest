@@ -13,14 +13,17 @@ function add(string) {
     const sum = string.split(regex)
       .filter(item => !isNaN(parseInt(item)) && parseInt(item) < 1000)
       .reduce((acum, item) => {
-        if (parseInt(item) >= 0) {
-          return parseInt(acum) + parseInt(item);
+        if (parseInt(acum) < 0) {
+          negatives.push(parseInt(acum));
         }
-        else {
+        else if (parseInt(item) < 0) {
           negatives.push(parseInt(item));
         }
+        else {
+          return parseInt(acum) + parseInt(item);
+        }
       })
-      
+
     if (negatives.length > 0) {
       throw `Negative numbers are not allowed: ${negatives.join(', ')}`;
     }
