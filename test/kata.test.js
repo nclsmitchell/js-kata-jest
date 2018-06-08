@@ -29,5 +29,5 @@ test('should accept any length separator', () => {
 });
 
 test('should throw negative provided int', () => {
-  expect(add('2,-5,-10,9')).toThrow();
+  expect(() => add('2,-5,-10,9')).toThrow();
 });
