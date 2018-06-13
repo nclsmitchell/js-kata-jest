@@ -20,14 +20,18 @@ test('should accept a custom separator', () => {
   expect(add('//;\n1,2;3')).toBe(6);
 });
 
+test('should throw negative provided int', () => {
+  expect(() => add('-5,2,-10,9')).toThrow();
+});
+
 test('should ignore above 1000 provided int', () => {
   expect(add('2, 1001')).toBe(2);
 });
 
 test('should accept any length separator', () => {
-  expect(add('//***\n2***3***4')).toBe(9);
+  expect(add('//[***]\n2***3***4')).toBe(9);
 });
 
-test('should throw negative provided int', () => {
-  expect(() => add('-5,2,-10,9')).toThrow();
-});
+// test('should accept mutiple separators', () => {
+//   expect(add('//[*][%]\n1*2%3')).toBe(6);
+// });

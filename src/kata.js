@@ -2,7 +2,7 @@ function add(string) {
 
   const separators = [',','\\n'];
   const negatives = [];
-  const regexp = /^\/\/(\D+)\n/;
+  const regexp = /^\/\/(?:\[?([^\[\d\]]+)\]?)+\n/;
 
   if (string.length == 0) {
     return 0;
@@ -12,6 +12,7 @@ function add(string) {
     separators.push(string.match(regexp)[1]);
   }
 
+  console.log(string.match(regexp));
   const list = string.split(new RegExp(`[${separators.join('')}]`))
     .filter(item => !isNaN(parseInt(item)) && parseInt(item) < 1000)
 
