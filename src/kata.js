@@ -2,7 +2,7 @@ function add(string) {
 
   const separators = [',','\\n'];
   const negatives = [];
-  let regexp = /^\/\/(\D+)\n/;
+  const regexp = /^\/\/(\D+)\n/;
 
   if (string.length == 0) {
     return 0;
@@ -11,9 +11,8 @@ function add(string) {
   if (string.match(regexp)) {
     separators.push(string.match(regexp)[1]);
   }
-  regexp = new RegExp(`[${separators.join('')}]`);
 
-  const list = string.split(regexp)
+  const list = string.split(new RegExp(`[${separators.join('')}]`))
     .filter(item => !isNaN(parseInt(item)) && parseInt(item) < 1000)
 
   let sum = 0;
