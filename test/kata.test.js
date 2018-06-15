@@ -32,6 +32,6 @@ test('should accept any length separator', () => {
   expect(add('//[***]\n2***3***4')).toBe(9);
 });
 
-// test('should accept mutiple separators', () => {
-//   expect(add('//[*][%]\n1*2%3')).toBe(6);
-// });
+test('should accept mutiple separators', () => {
+  expect(add('//[*][%]\n1*2%3')).toBe(6);
+});
