@@ -6,7 +6,7 @@ function add(string) {
   const multiple_separator = /\[(.*?)\]/g;
   const limit = 1000;
 
-  if (string.length == 0) {
+  if (!string) {
     return 0;
   }
 
@@ -34,7 +34,7 @@ function add(string) {
     sum += parsedItem;
   }
 
-  if (negatives.length > 0) {
+  if (negatives.length) {
     throw `Negative numbers are not allowed: ${negatives.join(', ')}`;
   }
   return sum;
